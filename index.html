@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"><title>ProteinKompass – Admin</title>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="glass-overrides.css"><link rel="stylesheet" href="supabase-ui.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="shell">
+    <header class="hero"><a class="brand" href="index.html"><span class="brand-mark">P</span><span>Protein<span>Kompass</span></span></a><p class="eyebrow">Geschützter Bereich</p><h1>Admin-<em>Tool</em></h1><p class="intro">Lebensmittel und Berechnungsregeln zentral in Supabase verwalten.</p><p class="notice"><a href="index.html">← Zum öffentlichen Rechner</a></p></header>
+    <p class="connection-status" id="admin-status" aria-live="polite">Supabase-Konfiguration wird geprüft …</p>
+    <section class="panel" id="login-panel"><div class="section-heading"><div><p class="eyebrow">Anmeldung</p><h2>Admin einloggen</h2></div></div><form id="login-form"><div class="input-grid"><label>E-Mail<input id="login-email" type="email" autocomplete="email" required></label><label>Passwort<input id="login-password" type="password" autocomplete="current-password" required></label></div><p class="form-error" id="login-error" role="alert"></p><button class="primary-button" type="submit">Anmelden</button></form></section>
+    <section class="admin-content" id="admin-content" hidden>
+      <nav class="tabs" aria-label="Admin-Bereiche"><button class="tab active" data-admin-tab="foods-panel">Lebensmittel</button><button class="tab" data-admin-tab="rules-panel">Regeln</button></nav>
+      <section class="panel admin-panel active" id="foods-panel"><div class="section-heading"><div><p class="eyebrow">Supabase: foods</p><h2>Lebensmittel verwalten</h2></div><button id="seed-button" class="secondary-button" type="button">Startdaten einmalig laden</button></div><form id="food-form" class="admin-card"><h3 id="food-form-title">Lebensmittel hinzufügen</h3><input id="food-id" type="hidden"><div class="input-grid compact"><label>Name<input id="food-name" maxlength="60" required></label><label>Protein je 100 g<input id="food-protein" type="number" min="0.1" step="0.1" required></label><label>Portionsgröße (g)<input id="food-portion" type="number" min="1" step="1" required></label><label>Portionsart<select id="food-unit"><option value="g">Gramm</option><option value="portion">Portion</option><option value="piece">Stück</option></select></label><label>Kategorie<select id="food-category"><option>Einzellebensmittel</option><option>Gericht</option></select></label><label>Geeignet ab<select id="food-diet"><option value="omnivore">Mischkost</option><option value="vegetarian">Vegetarisch</option><option value="vegan">Vegan</option></select></label><label class="full-width">Quelle / Notiz<input id="food-source" maxlength="140" required></label></div><div class="admin-actions"><button class="primary-button" type="submit">In Supabase speichern</button><button id="cancel-edit" class="secondary-button" type="button" hidden>Abbrechen</button></div></form><div class="admin-card"><h3>Gespeicherte Lebensmittel</h3><div id="admin-food-list" class="food-list"></div></div></section>
+      <section class="panel admin-panel" id="rules-panel"><div class="section-heading"><div><p class="eyebrow">Supabase: calculator_rules</p><h2>Berechnungsregeln</h2></div></div><form id="rules-form" class="admin-card"><p class="muted small">Alle Änderungen werden direkt zentral gespeichert. Der öffentliche Rechner lädt sie beim nächsten Aufruf.</p><h4>Grundbedarf (g/kg)</h4><div id="age-settings" class="settings-list"></div><h4>Sporthäufigkeit: Zuschlag (g/kg)</h4><div id="activity-settings" class="settings-list"></div><h4>Trainingsintensität: Zuschlag (g/kg)</h4><div id="intensity-settings" class="settings-list"></div><button class="primary-button" type="submit">Regeln in Supabase speichern</button></form></section>
+      <button id="signout-button" class="text-button" type="button">Abmelden</button>
+    </section>
+  </main>
+  <script src="data.js"></script><script src="supabase-config.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="admin.js"></script>
+</body>
+</html>
