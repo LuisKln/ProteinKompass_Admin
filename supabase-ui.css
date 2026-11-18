@@ -18,6 +18,8 @@
 .admin-panel { display: none; }
 .admin-panel.active { display: block; }
 .supabase-overview { display: block; }
+.overview-heading-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; }
+.overview-toggle { padding: 7px 10px; font-size: .78rem; }
 .overview-counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
 .overview-counts article, .overview-list { border: 1px solid rgba(132, 182, 255, .20); border-radius: 16px; background: rgba(9, 28, 50, .45); box-shadow: var(--glass-shadow-soft, 0 8px 20px rgba(3, 22, 61, .28)); }
 .overview-counts article { display: grid; gap: 3px; padding: 14px; }
@@ -30,4 +32,4 @@
 .overview-row:first-of-type { border-top: 0; }
 .overview-row strong { color: #e4f0ff; font-weight: 650; }
 @media (max-width: 720px) { .connection-status { margin-top: 14px; } }
-@media (max-width: 720px) { .overview-counts, .overview-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .overview-counts, .overview-grid { grid-template-columns: 1fr; } .overview-heading-actions { justify-content: flex-start; } }
